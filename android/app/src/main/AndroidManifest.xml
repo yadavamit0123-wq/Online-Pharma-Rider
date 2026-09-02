@@ -19,13 +19,13 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" tools:node="remove"/>
 
     <application
-        android:label="Hyperlocal - Rider App"
+        android:label="Online Pharma Rider"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/launcher_icon"
         android:enableOnBackInvokedCallback="true">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_ACTUAL_API_KEY_HERE"/>
+            android:value="AIzaSyA_usa-2matJnaEuxFvNag8qhXL51w4vJM"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -81,7 +81,7 @@
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@mipmap/ic_launcher" />
+            android:resource="@mipmap/launcher_icon" />
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"

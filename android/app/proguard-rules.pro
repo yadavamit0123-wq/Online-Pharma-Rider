@@ -64,7 +64,7 @@
 }
 
 # Keep custom application class
--keep class com.hyperlocal.partner.** { *; }
+-keep class com.pt.onlinepharmarider.** { *; }
 
 # Keep all classes in the io.flutter.embedding package
 -keep class io.flutter.embedding.** { *; }
