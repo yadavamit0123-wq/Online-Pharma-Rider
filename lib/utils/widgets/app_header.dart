@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ionicons/ionicons.dart';
+import 'package:ionicons_plus/ionicons_plus.dart';
 import 'package:hyper_local/l10n/app_localizations.dart';
 import '../../config/colors.dart';
 import '../../router/app_routes.dart';

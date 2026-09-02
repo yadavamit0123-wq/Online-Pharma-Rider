@@ -6,7 +6,7 @@ import 'package:hyper_local/screens/dashboard/bloc/notification/notification_blo
 import 'package:hyper_local/utils/widgets/custom_button.dart';
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ionicons/ionicons.dart';
+import 'package:ionicons_plus/ionicons_plus.dart';
 import '../../../../config/colors.dart';
 import '../../../../utils/widgets/custom_text.dart';
 import '../../../../utils/widgets/toast_message.dart';

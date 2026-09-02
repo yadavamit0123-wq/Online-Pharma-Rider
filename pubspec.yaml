@@ -48,7 +48,7 @@ dependencies:
   file_picker: ^10.2.0
   country_picker: ^2.0.27
   permission_handler: ^12.0.1
-  ionicons: ^0.2.2
+  ionicons_plus: ^0.2.4
   animated_toggle_switch: ^0.8.5
   location: ^8.0.1
   flutter_swipe_button: ^2.1.3
