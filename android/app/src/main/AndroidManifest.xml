@@ -21,7 +21,7 @@
     <application
         android:label="Online Pharma Rider"
         android:name="${applicationName}"
-        android:icon="@mipmap/launcher_icon"
+        android:icon="@mipmap/ic_launcher"
         android:enableOnBackInvokedCallback="true">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -81,7 +81,7 @@
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@mipmap/launcher_icon" />
+            android:resource="@mipmap/ic_launcher" />
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"

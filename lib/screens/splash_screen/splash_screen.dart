@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hyper_local/config/app_images.dart';
 import 'package:hyper_local/router/app_routes.dart';
-import '../../config/colors.dart';
 import '../../config/global.dart';
 import '../../utils/notification_manager.dart';
 
@@ -107,29 +106,20 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: Colors.white,
       body: SizedBox(
         width: double.infinity,
         height: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Logo/Animation
-            // Lottie.asset(
-            //   'assets/lottie/Food Courier.json',
-            //   width: 150.w,
-            //   height: 150.h,
-            //   fit: BoxFit.contain,
-            //   repeat: true,
-            //   animate: true,
-            // ),
-            Image.asset(
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24.w),
+            child: Image.asset(
               AppImages.splashLogo,
-              width: 200.w,
-              height: 200.h,
+              width: 320.w,
+              height: 160.h,
               fit: BoxFit.contain,
             ),
-          ],
+          ),
         ),
       ),
     );
