@@ -203,6 +203,23 @@ class PhoneAuthRepository {
     }
 
     try {
+      final currentUser = _firebaseAuth.currentUser;
+      if (currentUser != null &&
+          currentUser.phoneNumber != null &&
+          currentUser.phoneNumber!.isNotEmpty) {
+        final existingToken = await currentUser.getIdToken();
+        if (existingToken != null) {
+          if (kDebugMode) {
+            debugPrint('✅ Phone already verified, reusing Firebase session');
+          }
+          return {
+            'success': true,
+            'message': 'OTP verified successfully',
+            'idToken': existingToken,
+          };
+        }
+      }
+
       // Create credential
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
         verificationId: verificationId,
@@ -235,6 +252,29 @@ class PhoneAuthRepository {
       if (kDebugMode) {
         debugPrint('❌ OTP verification failed: ${e.message}');
       }
+
+      if (e.code == 'session-expired' ||
+          e.code == 'invalid-verification-code') {
+        final signedInUser = _firebaseAuth.currentUser;
+        if (signedInUser != null &&
+            signedInUser.phoneNumber != null &&
+            signedInUser.phoneNumber!.isNotEmpty) {
+          final existingToken = await signedInUser.getIdToken();
+          if (existingToken != null) {
+            if (kDebugMode) {
+              debugPrint(
+                '✅ OTP session already consumed, continuing with active session',
+              );
+            }
+            return {
+              'success': true,
+              'message': 'OTP verified successfully',
+              'idToken': existingToken,
+            };
+          }
+        }
+      }
+
       String errorMessage = 'Invalid OTP';
       if (e.code == 'invalid-verification-code') {
         errorMessage = 'Invalid OTP code';

@@ -372,7 +372,19 @@ class PhoneAuthBloc extends Bloc<PhoneAuthEvent, PhoneAuthState> {
       final isCustomSms =
           _systemSettingsBloc.currentSettings?.isCustomSmsEnabled ?? false;
 
-      if (event.verificationId.isNotEmpty && event.otp.isNotEmpty) {
+      final firebaseUser = FirebaseAuth.instance.currentUser;
+      final isAlreadyPhoneVerified =
+          !isCustomSms &&
+          firebaseUser?.phoneNumber != null &&
+          firebaseUser!.phoneNumber!.isNotEmpty;
+
+      if (isAlreadyPhoneVerified) {
+        idToken = await firebaseUser.getIdToken() ?? '';
+        if (idToken.isEmpty) {
+          emit(PhoneAuthFailure(error: 'Failed to get ID token'));
+          return;
+        }
+      } else if (event.verificationId.isNotEmpty && event.otp.isNotEmpty) {
         // Verify OTP and get idToken
         final verifyResult = await _phoneAuthRepository.verifyOTP(
           verificationId: event.verificationId,

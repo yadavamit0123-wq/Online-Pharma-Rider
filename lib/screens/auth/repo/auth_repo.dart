@@ -98,12 +98,12 @@ class AuthRepository {
       final fcmToken = await Global.getFCMToken();
 
       var data = FormData.fromMap({
-        'driver_license': await MultipartFile.fromFile(
+        'driver_license[]': await MultipartFile.fromFile(
           driverLicenseFile.path,
           filename:
               driverLicenseFile.path.split(Platform.isAndroid ? '/' : '/').last,
         ),
-        'vehicle_registration': await MultipartFile.fromFile(
+        'vehicle_registration[]': await MultipartFile.fromFile(
           vehicleRegistrationFile.path,
           filename:
               vehicleRegistrationFile.path
